@@ -8,23 +8,30 @@ VER=1
 REV=0.0
 
 _DEPS = Set.h \
-		# Object.h \
-		# new.h
+		Object.h \
+		new.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = 	Chapter1.o \
-		Set.o \
-		# Object.o \
-		# new.o
-OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
+_BAGS_OBJ = main.o \
+			Bag.o
+_SETS_OBJ = main.o \
+			Set.o
+
+BAGS_OBJ = $(patsubst %,$(ODIR)/%,$(_BAGS_OBJ))
+SETS_OBJ = $(patsubst %,$(ODIR)/%,$(_SETS_OBJ))
 
 $(ODIR)/%.o: $(SDIR)/%.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-Chapter1: $(OBJ)
-	$(CC) -o $@ $< $(LFLAGS)
+all: sets bags
+
+bags: $(BAGS_OBJ)
+	$(CC) -o $@ $^ $(LFLAGS)
+
+sets: $(SETS_OBJ)
+	$(CC) -o $@ $^ $(LFLAGS)
 
 .PHONY: clean
 
 clean:
-	rm -f $(ODIR)/*.o chapter1 *~ core $(INCDIR)/*~
+	rm -f $(ODIR)/*.o bags sets *~ core $(INCDIR)/*~
