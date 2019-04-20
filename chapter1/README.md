@@ -338,3 +338,23 @@ int (* action) (void * object, va_list ap), ...);`
 >**apply()** calls **action()** for each element in set and passes the rest of the argument
 list. **action()** must not change set but it may return zero to terminate **apply()** early.
 **apply()** returns true if all elements were processed.
+
+I was more curious about converting a set to a linked list of objects than worrying about store, and now that I've successfully done that, I want to move on.
+
+The new file ListSet.c implements a linked list of element structs that each contain a pointer to an object. This way, any set can have the same object in it any number of times, and an object can be in any number of sets any number of times. The key structural change is shown below. `add()` calls `new(Element)` and sets the object in the new element to the object passed in as an argument to `add()`. If you look at the file ListSet.c I'm sure you'll be able to make sense of it.
+
+```C
+struct Set { unsigned count; struct Element * head; };
+struct Object { enum types type; void * data; };
+struct Element { struct Object * object; struct Element * next; };
+
+static const size_t _Set = sizeof(struct Set);
+static const size_t _Object = sizeof(struct Object);
+static const size_t _Element = sizeof(struct Element);
+
+const void * Set = & _Set;
+const void * Object = & _Object;
+const void * Element = & _Element;
+```
+
+This is starting to get a little closer to what I've seen in GTK, which I really admire.
