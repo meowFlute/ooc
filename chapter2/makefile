@@ -1,21 +1,17 @@
 CC=gcc
 
-sets	= main.o Set.o
-bags	= main.o Bag.o
-lists 	= main.o ListSet.o
-t		= sets bags lists
+strings	= strings.o new.o String.o
+atoms	= strings.o new.o Atom.o
+t		= strings atoms
 
 all: $(t)
 debug: CC += -g
 debug: $(t)
 
-sets: $(sets)
+strings: $(strings)
 	$(CC) $(CFLAGS) -o $@ $^
 
-bags: $(bags)
-	$(CC) $(CFLAGS) -o $@ $^
-
-lists: $(lists)
+atoms: $(atoms)
 	$(CC) $(CFLAGS) -o $@ $^
 
 .PHONY: clean
