@@ -16,14 +16,17 @@ I'm doing this all from a linux machine, so my makefile will use gcc and some th
 ## Sections
 For now I'll plan on making a section per chapter. After I finish the book I'll likely make a cheat sheet for myself that will be 3-5 pages of condensed material.
 ### Chapter 1 - Abstract Data Types — Information Hiding
+This section shows how information hiding through **abstract data types** helps to compartmentalize programming. This allows for complete overhauls to the abstract data type without touching the code that uses it.
 
-This is what I'm currently working on...
+### Chapter 2 - Dynamic Linkage — Generic Functions
+This section shows how you can use **dynamic linkage** to further abstract functionality.
+
+We create a few generic functions and then use **dynamic linkage** to redefine where those functions take us and what they do. This allows us to create class constructors and destructors, as well as other class methods.
 
 ---
 
-Coming next
+Coming soon
 
-### Chapter 2 - Dynamic Linkage — Generic Functions
 ### Chapter 3 - Programming Savvy — Arithmetic Expressions
 ### Chapter 4 - Inheritance — Code Reuse and Refinement
 ### Chapter 5 - Programming Savvy — Symbol Table
