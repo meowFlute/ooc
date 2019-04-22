@@ -9,10 +9,10 @@ debug: CC += -g
 debug: $(t)
 
 strings: $(strings)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) -o $@ $^
 
 atoms: $(atoms)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) -o $@ $^
 
 .PHONY: clean
 

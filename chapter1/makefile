@@ -10,13 +10,13 @@ debug: CC += -g
 debug: $(t)
 
 sets: $(sets)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) -o $@ $^
 
 bags: $(bags)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) -o $@ $^
 
 lists: $(lists)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) -o $@ $^
 
 .PHONY: clean
 
