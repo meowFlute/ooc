@@ -24,7 +24,7 @@ This section shows how you can use **dynamic linkage** to further abstract funct
 We create a few generic functions and then use **dynamic linkage** to redefine where those functions take us and what they do. This allows us to create class constructors and destructors, as well as other class methods.
 
 ### Chapter 3 - Programming Savvy — Arithmetic Expressions
-This section takes what you learn in Chapters 1 and 2 and extends it just about as far as it will go. 
+This section takes what you learn in Chapters 1 and 2 and extends it just about as far as it will go.
 
 You create an arithmetic parser that generates a binary tree of objects and is able to output any of the three following formats
 1. Their actual numerical evaluation
@@ -35,11 +35,26 @@ All of this is done using **abstract objects** and **dynamic linkage**.
 
 ![example image](http://i.imgur.com/4RoGZ0c.png)
 
+### Chapter 4 - Inheritance — Code Reuse and Refinement
+
+Here you start to see inheritance, though the story won't be complete until Chapter 6...
+
+```C
+struct Point {
+	const void * class;
+	int x, y;				/* coordinates */
+};
+
+struct Circle {
+    const struct Point _;
+    int rad;                /* radius */
+};
+```
 ---
 
 Coming soon
 
-### Chapter 4 - Inheritance — Code Reuse and Refinement
+
 ### Chapter 5 - Programming Savvy — Symbol Table
 ### Chapter 6 - Class Hierarchy — Maintainability
 ### Chapter 7 - The ooc Preprocessor — Enforcing a Coding Standard
